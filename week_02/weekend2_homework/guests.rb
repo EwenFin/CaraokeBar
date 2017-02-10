@@ -1,6 +1,7 @@
 class Guest
-  attr_accessor :fav_song
-  def initialize(fav_song)
+  attr_accessor :name ,:fav_song
+  def initialize(name, fav_song)
+    @name = name
     @fav_song = fav_song
   end
 end
