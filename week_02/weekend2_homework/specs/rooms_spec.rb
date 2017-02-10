@@ -6,8 +6,13 @@ require_relative('../songs.rb')
 
 class TestRooms < MiniTest::Test
   def setup
-    @guest1 = Guest.new("John", "Waterloo")
-    @guest2 = Guest.new("Claire", "Bohemian Rhapsody")
+    @guest1 = Guest.new("John", "Waterloo", 100)
+    @guest2 = Guest.new("Claire", "Bohemian Rhapsody", 50)
+    @guest3 = Guest.new("Mike", "under pressure", 50)
+    @guest4 = Guest.new("Bruce", "Fishermans Blues", 50)
+    @guest5 = Guest.new("Fiona", "walk this way ", 50)
+    @guest6 = Guest.new("Andy", "Blue in Green", 50)
+    @guest7 = Guest.new("Gayle", "Settling", 50)
     @song1 = Song.new("Waterloo")
     @song2 = Song.new("Song 2")
     @room1 = Room.new(1, [], [])
@@ -38,5 +43,19 @@ class TestRooms < MiniTest::Test
     assert_equal([@guest2], @room1.guest_array)
   end
 
+  def test_room_is_full
+      # @room2 = Room.new(2, [@guest1, @guest2, @guest3, @guest4, @guest5, @guest6] , [@song1, @song2])
+
+      #originally I created a new instance of a room with 6 guests already inside, but then ran into problem with @guest_array = [].  I discussed this with Sian who told me two ways around the problem, this is the long, but probably better, way around.
+
+      @room1.add_guest_to_room(@guest1)
+      @room1.add_guest_to_room(@guest2)
+      @room1.add_guest_to_room(@guest3)
+      @room1.add_guest_to_room(@guest4)
+      @room1.add_guest_to_room(@guest5)
+      @room1.add_guest_to_room(@guest6)
+
+      assert_equal("Room is full", @room1.add_guest_to_room(@guest7))
+  end
 
 end
