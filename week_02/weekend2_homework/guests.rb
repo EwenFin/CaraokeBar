@@ -5,4 +5,6 @@ class Guest
     @fav_song = fav_song
     @wallet = wallet
   end
+
+
 end

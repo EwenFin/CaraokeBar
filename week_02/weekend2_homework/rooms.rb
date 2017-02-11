@@ -14,7 +14,6 @@ class Room
     else 
       return "Room is full"
     end
-    
   end
 
   def add_song_to_room(song)
@@ -25,4 +24,19 @@ class Room
     @guest_array.delete(guest)
   end
 
+  def favourite_song_in_room
+     song_titles = @song_array.map {|song| song.title}
+     guest_fav_songs = @guest_array.map{|guest| guest.fav_song}
+     intersection = song_titles & guest_fav_songs
+     num = intersection.length
+      if num == 1
+        return "Woohoo, they have my favourite song"
+      elsif num > 1 && num < 6
+        return "Woohoo, they have lots of our favourite songs"
+      elsif num == 6
+        return "Amazing, they have all of our favourite songs"
+      else
+        return
+      end
+  end
 end

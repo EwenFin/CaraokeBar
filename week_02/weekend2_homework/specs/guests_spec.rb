@@ -11,4 +11,6 @@ class TestGuest < MiniTest::Test
     assert_equal("9 to 5", @guest1.fav_song)
   end
 
+  
+
 end
