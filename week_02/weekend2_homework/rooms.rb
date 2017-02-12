@@ -38,5 +38,6 @@ class Room
       else
         return
       end
+      #I don't like this, may come back and try to add in a .select == guest.fav_song and change the reponses to include guest.names 
   end
 end
